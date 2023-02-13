@@ -22,7 +22,6 @@ jobs:
         tag=$(git describe --tags $(git rev-list --tags --max-count=1))
         echo "::set-output name=tag::$tag"       
 
-jobs:
   github-example-tags:
     steps:
      - name: GitHub Tag Name example
