@@ -15,19 +15,14 @@ jobs:
         # repository: zabayek/variables
         # path: variables
         # token: ${{ secrets.REPO_ACCESS_TOKEN }}
-
-    # - name: Get repository tag
-      # id: get_tag
-      # run: |
-        # tag=$(git describe --tags $(git rev-list --tags --max-count=1))
-        # echo "::set-output name=tag::$tag"
-        
+       
+    # repo 1
     - name: Checkout repository
-      uses: actions/checkout@v2 
+      uses: actions/checkout@v2
       with:
         ref: main
         # repository: other_repo_owner/other_repo_name
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}        
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
     - name: GitHub Tag Name example
       run: |
@@ -37,6 +32,24 @@ jobs:
         currentVersion=$(git describe --tags --abbrev=7)
         echo $currentVersion
         echo "$currentVersion"
+
+    # repo 2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        repository: zabayek/variables
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+    
+    
+    # - name: Run Python script
+      # uses: python/3.8
+      # env:
+        # PARAM_1: first_param
+        # PARAM_2: second_param
+      # run: |
+        # python main.py $PARAM_1 $PARAM_2
+    
 
 
         
