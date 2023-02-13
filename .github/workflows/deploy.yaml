@@ -16,18 +16,16 @@ jobs:
         path: variables
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
-    - name: Get repository tag
-      id: get_tag
-      run: |
-        tag=$(git describe --tags $(git rev-list --tags --max-count=1))
-        echo "::set-output name=tag::$tag"       
+    # - name: Get repository tag
+      # id: get_tag
+      # run: |
+        # tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+        # echo "::set-output name=tag::$tag"
 
-  github-example-tags:
-    steps:
-     - name: GitHub Tag Name example
-       run: |
-         echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-         echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+    - name: GitHub Tag Name example
+      run: |
+        echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+        echo "Tag name from github.ref_name: ${{  github.ref_name }}"
 
 
         
