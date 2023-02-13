@@ -34,6 +34,9 @@ jobs:
         echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
         echo "Tag name from github.ref_name: ${{  github.ref_name }}"
         echo "Tag from internet: $(git describe --tags --abbrev=7)"
+        currentVersion=$(git describe --tags --abbrev=7)
+        echo $currentVersion
+        echo "$currentVersion"
 
 
         
