@@ -8,11 +8,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # - name: Checkout repository
+      # uses: actions/checkout@v2
+      # with:
+        # ref: main
+        # repository: zabayek/variables
+        # path: variables
+        # token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+    # - name: Get repository tag
+      # id: get_tag
+      # run: |
+        # tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+        # echo "::set-output name=tag::$tag"
+        
     - name: Checkout repository
       uses: actions/checkout@v2 
       with:
         ref: main
-        repository: other_repo_owner/other_repo_name
+        # repository: other_repo_owner/other_repo_name
         token: ${{ secrets.REPO_ACCESS_TOKEN }}        
 
     - name: GitHub Tag Name example
@@ -20,3 +34,25 @@ jobs:
         echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
         echo "Tag name from github.ref_name: ${{  github.ref_name }}"
         echo "Tag from internet: $(git describe --tags --abbrev=7)"
+
+
+        
+
+    # - name: Run Python script
+      # uses: python/3.8
+      # env:
+        # PARAM_1: first_param
+        # PARAM_2: second_param
+      # run: |
+        # python main.py $PARAM_1 $PARAM_2
+
+    # - name: Create new branch
+      # run: |
+        # BRANCH_NAME=modify-a-json-$(date +%s)
+        # git checkout -b $BRANCH_NAME
+
+    # - name: Commit changes
+      # uses: elucid/action-git-auto-commit@v1
+      # with:
+        # repo_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        # commit_message: "Modify a.json file and create a new branch"
