@@ -47,14 +47,6 @@ jobs:
     - name: Run Python script
       run: python3 actions_testing/scripts/write.py -dag_file "actions_testing/dag.json" -rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $currentVersion
 
-    # - name: Run Python script
-      # uses: python/3.8
-      # env:
-        # PARAM_1: first_param
-        # PARAM_2: second_param
-      # run: |
-        # python main.py $PARAM_1 $PARAM_2
-
     # - name: Create new branch
       # run: |
         # BRANCH_NAME=modify-a-json-$(date +%s)
