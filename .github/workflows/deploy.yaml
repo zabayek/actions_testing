@@ -35,14 +35,15 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: main
+        path: variables
         repository: zabayek/variables
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
     
     
     - name: Run Python script
       run: |
-      cd 
-      scripts/update_dag.py -dag_file "dag.json" -rm_file "ecco_cdp_gold_retailmanagement.json"  proj_ver $currentVersion
+      cd actions_testing/scripts
+      update_dag.py -dag_file "actions_testing/dag.json" -rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json"  proj_ver $currentVersion
 
     # - name: Run Python script
       # uses: python/3.8
