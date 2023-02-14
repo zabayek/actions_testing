@@ -24,4 +24,3 @@ if __name__ == '__dag_operate__':
     dag_operate()
 
 # dag_operate(dag_file="dag.json", rm_file="ecco_cdp_gold_retailmanagement.json", proj_ver="rm1.2.3333")
-
