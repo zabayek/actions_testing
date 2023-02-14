@@ -1,4 +1,4 @@
-name: Update DAG 0.0.14
+name: Update DAG
 
 on:
   workflow_dispatch:
@@ -45,7 +45,7 @@ jobs:
         python-version: 3.x
     
     - name: Run Python script
-      run: python3 actions_testing/scripts/write.py -dag_file "actions_testing/dag.json" -rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $currentVersion
+      run: python3 actions_testing/scripts/update_dag.py -dag_file "actions_testing/dag.json" -rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $currentVersion
 
     # - name: Create new branch
       # run: |
