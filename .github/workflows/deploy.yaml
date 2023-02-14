@@ -21,6 +21,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: main
+        path: actions_testing
         # repository: other_repo_owner/other_repo_name
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
@@ -39,11 +40,9 @@ jobs:
     
     
     - name: Run Python script
-      uses: actions/python-actions@v1
-      with:
-        python-version: '3.x'
-        endpoint: python
-        args: scripts/update_dag.py -dag_file "dag.json" -rm_file "ecco_cdp_gold_retailmanagement.json"  proj_ver $currentVersion
+      run: |
+      cd 
+      scripts/update_dag.py -dag_file "dag.json" -rm_file "ecco_cdp_gold_retailmanagement.json"  proj_ver $currentVersion
 
     # - name: Run Python script
       # uses: python/3.8
