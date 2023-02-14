@@ -1,6 +1,7 @@
 def dag_operate(dag_file, rm_file, proj_ver):
     import zipfile
     import json
+    import os
 
     # read dag.json
     with open(dag_file, "r") as f:
@@ -19,6 +20,8 @@ def dag_operate(dag_file, rm_file, proj_ver):
     with open(rm_file, "w") as f:
         json.dump(gold_content, f, indent=4)
 
+if __name__ == '__dag_operate__':
+    dag_operate()
 
-dag_operate(dag_file="dag.json", rm_file="ecco_cdp_gold_retailmanagement.json", proj_ver="rm1.2.3333")
+# dag_operate(dag_file="dag.json", rm_file="ecco_cdp_gold_retailmanagement.json", proj_ver="rm1.2.3333")
 
