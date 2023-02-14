@@ -39,7 +39,6 @@ jobs:
         repository: zabayek/variables
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
     
-    
     - name: Run Python script
       run: |
       cd actions_testing/scripts
