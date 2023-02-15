@@ -48,7 +48,7 @@ jobs:
         ls
         echo $currentVersion
         echo $GITHUB_REF_NAME
-        python3 scripts/update_dag.py -dag_file dag.json -rm_file "../variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $GITHUB_REF_NAME
+        python3 scripts/update_dag.py -dag_file dag.json -rm_file "./variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $GITHUB_REF_NAME
 
     - name: Create new branch
       run: |
