@@ -51,8 +51,8 @@ jobs:
        BRANCH_NAME=modify-a-json-$(date +%s)
        git checkout -b $BRANCH_NAME
 
-    - name: Commit changes
-      uses: elucid/action-git-auto-commit@v1
-      with:
-        repo_token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        commit_message: "Modify a.json file and create a new branch"
+#    - name: Commit changes
+#      uses: elucid/action-git-auto-commit@v1
+#      with:
+#        repo_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+#        commit_message: "Modify a.json file and create a new branch"
