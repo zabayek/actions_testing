@@ -44,7 +44,8 @@ jobs:
         python-version: 3.x
     
     - name: Run Python script
-      run: actions_testing/scripts/update_dag.py -dag_file "actions_testing/dag.json" -rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $currentVersion
+      # run: actions_testing/scripts/update_dag.py -dag_file "actions_testing/dag.json" -rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $currentVersion
+      ls actions_testing/scripts
 
     - name: Create new branch
       run: |
