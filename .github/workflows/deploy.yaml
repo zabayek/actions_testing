@@ -45,8 +45,7 @@ jobs:
     
     - name: Run Python script
       run: |
-#      python actions_testing/scripts/update_dag.py --dag_file "actions_testing/dag.json" --rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" --proj_ver $currentVersion
-      run: |
+#      python actions_testing/scripts/update_dag.py --dag_file "actions_testing/dag.json" --rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" --proj_ver $currentVersion      
         ls actions_testing
         ls variables
 
