@@ -39,14 +39,13 @@ jobs:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
     - name: Setup Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v2
       with:
         python-version: 3.x
     
     - name: Run Python script
       run: |
-        ls variables
-        ls actions_testing
+        python actions_testing/scripts/update_dag.py --dag_file "actions_testing/dag.json" --rm_file "variables/.helm/ecco_cdp_gold_retailmanagement.json" --proj_ver $currentVersion
 
     - name: Create new branch
       run: |
