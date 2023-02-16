@@ -52,6 +52,7 @@ jobs:
 
     - name: Create new branch
       run: |
+        cd variables
         BRANCH_NAME=modify-a-json-$(date +%s)
         git checkout -b $BRANCH_NAME
         git status
