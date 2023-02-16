@@ -53,13 +53,14 @@ jobs:
     - name: Create new branch
       run: |
         cd variables
-        BRANCH_NAME=modify-a-json-$(date +%s)
-        git checkout -b $BRANCH_NAME
-        git status
-        git branch
-        git add "./.helm/ecco_cdp_gold_retailmanagement.json"
-        git commit
-        git push -u origin $BRANCH_NAME
+        cat "./.helm/ecco_cdp_gold_retailmanagement.json"
+        # BRANCH_NAME=modify-a-json-$(date +%s)
+        # git checkout -b $BRANCH_NAME
+        # git status
+        # git branch
+        # git add "./.helm/ecco_cdp_gold_retailmanagement.json"
+        # git commit
+        # git push -u origin $BRANCH_NAME
 #       git commit -m "Update variables with latest version of repository 2"
 #       git push origin $BRANCH_NAME
 
