@@ -39,7 +39,6 @@ jobs:
 
     - name: Create new branch
       run: |
-        USER=
         cd variables
         cat "./.helm/ecco_cdp_gold_retailmanagement.json"
         BRANCH_NAME=modify_dag_and_ver-${GITHUB_REF_NAME}
@@ -47,9 +46,14 @@ jobs:
         # git status
         # git branch
         git add ./.helm/ecco_cdp_gold_retailmanagement.json
-        git config --local user.email "$(git config user.email)"
-        git config --local user.name "$(git config user.name)"
-        git commit -m "Update variables with latest version of repository 2"
+        echo $(git config user.email)
+
+#        git config --local user.email "$(git config user.email)"
+#        git config --local user.name "$(git config user.name)"
+        
+        git config --local user.email "psab@ecco.com"
+        git config --local user.name "zabayek"
+        git commit -m "Update airflow-variables"
         git push origin $BRANCH_NAME
 #       git commit -m "Update variables with latest version of repository 2"
 #       git push origin $BRANCH_NAME
