@@ -1,4 +1,4 @@
-name: Update DAG
+name: Update ver & DAG graph
 
 on:
   workflow_dispatch:
@@ -8,27 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Checkout repository
-      # uses: actions/checkout@v2
-      # with:
-        # ref: main
-        # repository: zabayek/variables
-        # path: variables
-        # token: ${{ secrets.REPO_ACCESS_TOKEN }}
-       
+      
     # repo *actions_testing*
     - name: Checkout repository *actions_testing*
       uses: actions/checkout@v2
       with:
         ref: main
         # path: actions_testing
-        # repository: other_repo_owner/other_repo_name
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
 
-    - name: Repo Tag to variable
-      run: |
-        currentVersion=$GITHUB_REF_NAME
-        echo $currentVersion
     # repo *variables*
     - name: Checkout repository *variables*
       uses: actions/checkout@v2
@@ -46,15 +34,14 @@ jobs:
     - name: Run Python script
       run: |
         ls -a
-        echo $currentVersion
-        echo $GITHUB_REF_NAME
+        echo "Project version: ${GITHUB_REF_NAME}"
         python3 scripts/update_dag.py -dag_file dag.json -rm_file "./variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $GITHUB_REF_NAME
 
     - name: Create new branch
       run: |
         cd variables
         cat "./.helm/ecco_cdp_gold_retailmanagement.json"
-        BRANCH_NAME=modify-a-json-$(date +%s)
+        BRANCH_NAME=modify_dag_and_ver-${GITHUB_REF_NAME}
         git checkout -b $BRANCH_NAME
         # git status
         # git branch
