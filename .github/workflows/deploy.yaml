@@ -59,7 +59,7 @@ jobs:
         git branch
         git add "./.helm/ecco_cdp_gold_retailmanagement.json"
         git commit
-        git push -u origin HEAD
+        git push -u origin $BRANCH_NAME
 #       git commit -m "Update variables with latest version of repository 2"
 #       git push origin $BRANCH_NAME
 
