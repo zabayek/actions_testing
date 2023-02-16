@@ -59,6 +59,8 @@ jobs:
         # git status
         # git branch
         git add ./.helm/ecco_cdp_gold_retailmanagement.json
+        git config --local user.email "psab@ecco.com"
+        git config --local user.name "zabayek"
         git commit -m "Update variables with latest version of repository 2"
         git push origin $BRANCH_NAME
 #       git commit -m "Update variables with latest version of repository 2"
