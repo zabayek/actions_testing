@@ -52,13 +52,13 @@ jobs:
 
     - name: Create new branch
       run: |
-       BRANCH_NAME=modify-a-json-$(date +%s)
-       git checkout -b $BRANCH_NAME
+        BRANCH_NAME=modify-a-json-$(date +%s)
+        git checkout -b $BRANCH_NAME
       #  cd repozytorium1
       #  git checkout -b update_variables
-       git add variables
-       git commit -m "Update variables with latest version of repository 2"
-       git push origin $BRANCH_NAME       
+        git add variables
+        git commit -m "Update variables with latest version of repository 2"
+        git push origin $BRANCH_NAME       
 
 #    - name: Commit changes
 #      uses: elucid/action-git-auto-commit@v1
