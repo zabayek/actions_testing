@@ -39,8 +39,6 @@ jobs:
 
     - name: Create new branch
       run: |
-        $EMAIL = "$(git config --global user.email)"
-        $EMAIL | xargs git config user.email
         cd variables
         cat "./.helm/ecco_cdp_gold_retailmanagement.json"
         BRANCH_NAME=modify_dag_and_ver-${GITHUB_REF_NAME}
@@ -51,7 +49,10 @@ jobs:
 
 #        git config --local user.email "$(git config user.email)"
 #        git config --local user.name "$(git config user.name)"
-        
+        EMAIL = "$(git config --global user.email)"
+        EMAIL | xargs git config user.email
+
+
         git config --global user.email $(echo $EMAIL)
         git config --local user.name "zabayek"
         git commit -m "Update airflow-variables"
