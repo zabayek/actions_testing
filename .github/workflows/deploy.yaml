@@ -46,6 +46,11 @@ jobs:
         # git status
         # git branch
         git add ./.helm/ecco_cdp_gold_retailmanagement.json
+
+        const actor = process.env.GITHUB_ACTOR;
+        const userEmail = await context.github.users.getByUsername({username: actor}).then(data => data.data.email);
+        console.log(userEmail);
+        
         git config --local user.email "psab@ecco.com"
         git config --local user.name "zabayek"
         git commit -m "Update variables with latest version of repository 2"
