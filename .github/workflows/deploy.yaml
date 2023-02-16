@@ -49,7 +49,7 @@ jobs:
 
 #        git config --local user.email "$(git config user.email)"
 #        git config --local user.name "$(git config user.name)"
-        EMAIL = "$(git config --global user.email)"
+#        EMAIL = "$(git config --global user.email)"
 #        EMAIL | xargs git config user.email
         echo $EMAIL
 
