@@ -54,7 +54,7 @@ jobs:
       run: |
         BRANCH_NAME=modify-a-json-$(date +%s)
         git checkout -b $BRANCH_NAME
-#       see all branches
+        git status
         git branch
 #       git add variables
 #       git commit -m "Update variables with latest version of repository 2"
