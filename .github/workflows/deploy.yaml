@@ -40,11 +40,11 @@ jobs:
     - name: Create new branch
       run: |
         cd variables
-        cat "./.helm/ecco_cdp_gold_retailmanagement.json"
+        # cat "./.helm/ecco_cdp_gold_retailmanagement.json"
         BRANCH_NAME=modify_dag_and_ver-${GITHUB_REF_NAME}
         git checkout -b $BRANCH_NAME
         git add ./.helm/ecco_cdp_gold_retailmanagement.json
-        EMAIL="$(git config --local user.email)"
+        # EMAIL="$(git config --local user.email)"
         git config --local user.email "psab@ecco.com"
         git config --local user.name "zabayek"
         git commit -m "Update airflow-variables"
