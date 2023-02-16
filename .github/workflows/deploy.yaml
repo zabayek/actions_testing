@@ -57,6 +57,7 @@ jobs:
         git status
         git branch
         git add "./variables/.helm/ecco_cdp_gold_retailmanagement.json"
+        git push -u origin HEAD
 #       git commit -m "Update variables with latest version of repository 2"
 #       git push origin $BRANCH_NAME
 
