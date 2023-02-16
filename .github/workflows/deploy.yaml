@@ -36,18 +36,16 @@ jobs:
         ls -a
         echo "Project version: ${GITHUB_REF_NAME}"
         python3 scripts/update_dag.py -dag_file dag.json -rm_file "./variables/.helm/ecco_cdp_gold_retailmanagement.json" -proj_ver $GITHUB_REF_NAME
+        cat "./.helm/ecco_cdp_gold_retailmanagement.json"
 
     - name: Create new branch
       run: |
         cd variables
-        # cat "./.helm/ecco_cdp_gold_retailmanagement.json"
         BRANCH_NAME=modify_dag_and_ver-${GITHUB_REF_NAME}
         git checkout -b $BRANCH_NAME
         git add ./.helm/ecco_cdp_gold_retailmanagement.json
-        # EMAIL="$(git config --local user.email)"
-        git config --local user.email
-        git config --local user.email "psab@ecco.com"
-        git config --local user.name "zabayek"
+        git config --local user.email "deploy-helper@ecco.com"
+        git config --local user.name "deploy-helper"
         git commit -m "Update airflow-variables"
         git push origin $BRANCH_NAME
 #       git commit -m "Update variables with latest version of repository 2"
