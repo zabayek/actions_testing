@@ -6,6 +6,9 @@ on:
 jobs:
   modify_file:
     runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        id-token: write
 
     steps:
     - name: get secretes
@@ -15,8 +18,8 @@ jobs:
         role: github
         method: jwt
         secrets: |
-          /secret/data/PSAB@Ecco.com/test actions_testing_key | ENV_ACTIONS_TESTING_KEY ;
-          /secret/data/PSAB@Ecco.com/test variables_key | ENV_VARIABLES_KEY ;
+          /secret/data/repositories/ecco-cdp-gold-retailmanagement actions_testing_key | ENV_ACTIONS_TESTING_KEY ;
+          /secret/data/repositories/ecco-cdp-gold-retailmanagement variables_key | ENV_VARIABLES_KEY ;
     # repo *actions_testing*
     - name: Checkout repository *actions_testing*
       uses: actions/checkout@v2
