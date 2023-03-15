@@ -8,14 +8,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+    - name: get secretes
+      uses: hashicorp/vault-action@v2.4.1
+      with:
+        url: https://hashicorp-vault.production.sneaksanddata.com/
+        role: github
+        method: jwt
+        secrets: |
+          /secret/data/PSAB@Ecco.com/test actions_testing_key ;
+          /secret/data/PSAB@Ecco.com/test variables_key ;
     # repo *actions_testing*
     - name: Checkout repository *actions_testing*
       uses: actions/checkout@v2
       with:
         ref: main
         # path: actions_testing
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        token: ${{ env.actions_testing_key }}
 
     # repo *variables*
     - name: Checkout repository *variables*
@@ -24,7 +32,7 @@ jobs:
         ref: main
         path: variables
         repository: zabayek/variables
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        token: ${{ env.variables_key }}
 
     - name: Setup Python
       uses: actions/setup-python@v2
