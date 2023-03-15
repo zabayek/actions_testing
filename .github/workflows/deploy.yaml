@@ -18,15 +18,15 @@ jobs:
         role: github
         method: jwt
         secrets: |
-          /secret/data/repositories/ecco-cdp-gold-retailmanagement actions_testing_key | ENV_ACTIONS_TESTING_KEY ;
-          /secret/data/repositories/ecco-cdp-gold-retailmanagement variables_key | ENV_VARIABLES_KEY ;
+          /secret/data/repositories/ecco-cdp-gold-retailmanagement ACTIONS_TESTING_KEY ;
+          /secret/data/repositories/ecco-cdp-gold-retailmanagement VARIABLES_KEY ;
     # repo *actions_testing*
     - name: Checkout repository *actions_testing*
       uses: actions/checkout@v2
       with:
         ref: main
         # path: actions_testing
-        token: ${{ env.ENV_ACTIONS_TESTING_KEY }}
+        token: ${{ env.ACTIONS_TESTING_KEY }}
 
     # repo *variables*
     - name: Checkout repository *variables*
@@ -35,7 +35,7 @@ jobs:
         ref: main
         path: variables
         repository: zabayek/variables
-        token: ${{ env.ENV_VARIABLES_KEY }}
+        token: ${{ env.VARIABLES_KEY }}
 
     - name: Setup Python
       uses: actions/setup-python@v2
