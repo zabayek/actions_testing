@@ -15,15 +15,15 @@ jobs:
         role: github
         method: jwt
         secrets: |
-          /secret/data/PSAB@Ecco.com/test actions_testing_key ;
-          /secret/data/PSAB@Ecco.com/test variables_key ;
+          /secret/data/PSAB@Ecco.com/test actions_testing_key | ENV_ACTIONS_TESTING_KEY ;
+          /secret/data/PSAB@Ecco.com/test variables_key | ENV_VARIABLES_KEY ;
     # repo *actions_testing*
     - name: Checkout repository *actions_testing*
       uses: actions/checkout@v2
       with:
         ref: main
         # path: actions_testing
-        token: ${{ env.actions_testing_key }}
+        token: ${{ env.ENV_ACTIONS_TESTING_KEY }}
 
     # repo *variables*
     - name: Checkout repository *variables*
@@ -32,7 +32,7 @@ jobs:
         ref: main
         path: variables
         repository: zabayek/variables
-        token: ${{ env.variables_key }}
+        token: ${{ env.ENV_VARIABLES_KEY }}
 
     - name: Setup Python
       uses: actions/setup-python@v2
